@@ -61,7 +61,6 @@ function App() {
       </form>
       <br></br>
       <ol id="toDo">
-        <li>Test item</li>
       </ol>
     </body>
     </div>
