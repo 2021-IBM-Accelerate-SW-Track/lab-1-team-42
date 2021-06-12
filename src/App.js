@@ -35,7 +35,7 @@ function App() {
       displayList.append(item);
     }
   }
-
+  
   return (
     <div className="App">
     <Header/>
@@ -47,7 +47,7 @@ function App() {
         <TextField
         onChange={(e) => setItem(e.target.value)} 
         id="userInput" 
-        label="" 
+        label=""
         variant="filled"
         />
         <Button          // FIXME add space b/w button and field
