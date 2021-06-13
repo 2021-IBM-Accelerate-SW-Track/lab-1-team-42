@@ -2,8 +2,8 @@ import Header from "./component/header"
 import React, {useState} from 'react'
 import './App.css';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
+import Save from './component/saveButton.js';
+
 //test commment
 function App() {
   // Hook to store the state of the textField, and
@@ -50,14 +50,7 @@ function App() {
         label=""
         variant="filled"
         />
-        <Button          // FIXME add space b/w button and field
-          type="submit"
-          variant="contained" 
-          color="primary"
-          size="large" 
-          startIcon={<SaveIcon />}>
-            Save 
-        </Button>
+        <Save/>
       </form>
       <br></br>
       <ol id="toDo">
