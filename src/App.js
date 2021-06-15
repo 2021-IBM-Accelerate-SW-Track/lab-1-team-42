@@ -1,43 +1,32 @@
 import Header from "./component/header"
-import React, {useState} from 'react'
+import React from 'react'
 import './App.css';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
-// import Grid from '@material-ui/core/Grid';
-// import { addItem } from "./component/header/addItem";
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Grid from '@material-ui/core/Grid';
+
 
 function App() {
-  const [item, setItem] = useState('');
-  const handleItem = (e) =>{
-    e.preventDefault()
-
-    if(item){
-      console.log(item);
-    }
-  }
-
+  let textSpace = 3;
+  let buttonSpace = 1;
   return (
     <div className="App">
     <Header/>
     <h1>To Do List</h1>
     <body>
-      <form noValidate autoComplete="off" onSubmit={handleItem}>
-        <TextField
-        onChange={(e) => setItem(e.target.value)} 
-        id="userInput" 
-        label="" 
-        variant="filled" 
-        />
-        <Button 
-          type="submit"
-          variant="contained" 
-          color="primary"
-          size="large" 
-          startIcon={<SaveIcon />}>
-          Save
-        </Button>
-      </form>
+      <Grid container spacing={0} direction="row" justify="center" >
+        <Grid item xs={textSpace}>
+          <form noValidate autoComplete="off">
+            <TextField id="filled-basic" label="Filled" variant="filled" />
+          </form>
+        </Grid>
+        <Grid item xs={buttonSpace}>
+          <Fab color="primary" aria-label="add">
+            <AddIcon />
+          </Fab>
+        </Grid>
+      </Grid>
     </body>
     </div>
   );
