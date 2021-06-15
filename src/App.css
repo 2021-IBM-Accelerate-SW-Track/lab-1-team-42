@@ -33,11 +33,11 @@ h1 {
   opacity: 0.4;
 }
 
-.todo-form {
+.task-form {
   margin-bottom: 32px;
 }
 
-.todo-input {
+.task-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
   border: 2px solid #dd810d;
@@ -47,11 +47,11 @@ h1 {
   color: #fff;
 }
 
-.todo-input::placeholder {
+.task-input::placeholder {
   color: #e2e2e2;
 }
 
-.todo-button {
+.task-button {
   padding: 16px;
   border: none;
   border-radius: 0 4px 4px 0;
@@ -62,22 +62,22 @@ h1 {
   text-transform: capitalize;
 }
 
-.todo-input.edit {
+.task-input.edit {
   border: 2px solid #0ca1f1;
 }
 
-.todo-button.edit {
+.task-button.edit {
   background-color: #0ca1f1;
   padding: 16px 22px;
 }
 
-.todo-container {
+.task-container {
   display: flex;
   flex-direction: row;
   position: relative;
 }
 
-.todo-row {
+.task-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,7 +94,7 @@ h1 {
   width: 90%;
 }
 
-.todo-row:nth-child(4n + 1) {
+.task-row:nth-child(4n + 1) {
   background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
@@ -102,7 +102,7 @@ h1 {
   );
 }
 
-.todo-row:nth-child(4n + 2) {
+.task-row:nth-child(4n + 2) {
   background: linear-gradient(
     90deg,
     rgba(255, 12, 241, 1) 0%,
@@ -110,7 +110,7 @@ h1 {
   );
 }
 
-.todo-row:nth-child(4n + 3) {
+.task-row:nth-child(4n + 3) {
   background: linear-gradient(
     90deg,
     rgba(20, 159, 255, 1) 0%,

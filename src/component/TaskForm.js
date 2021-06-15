@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
-//get props onSubmit from TodoList
-const TodoForm = (props) => {
+//get props onSubmit from TaskList
+const TaskForm = (props) => {
   //if editing --> show previous text to edit on
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
 
@@ -21,7 +21,7 @@ const TodoForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //pass this into onSubmit prop in Todo
+    //pass this into onSubmit prop in task
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,
@@ -31,7 +31,7 @@ const TodoForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="todo-form">
+      <form onSubmit={handleSubmit} className="task-form">
         {props.edit ? (
           <>
             <input
@@ -39,11 +39,11 @@ const TodoForm = (props) => {
               placeholder="Update your item"
               value={input}
               name="text"
-              className="todo-input edit"
+              className="task-input edit"
               onChange={handleChange}
               ref={inputRef}
             />
-            <button onClick={handleSubmit} className="todo-button edit">
+            <button onClick={handleSubmit} className="task-button edit">
               Update
             </button>
           </>
@@ -54,11 +54,11 @@ const TodoForm = (props) => {
               placeholder="Add a task"
               value={input}
               name="text"
-              className="todo-input"
+              className="task-input"
               onChange={handleChange}
               ref={inputRef}
             />
-            <button onClick={handleSubmit} className="todo-button">
+            <button onClick={handleSubmit} className="task-button">
               Add
             </button>
           </>
@@ -68,4 +68,4 @@ const TodoForm = (props) => {
   );
 };
 
-export default TodoForm;
+export default TaskForm;

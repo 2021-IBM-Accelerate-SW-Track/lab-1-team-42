@@ -1,13 +1,13 @@
 import Header from "./component/header";
 import React from "react";
 import "./App.css";
-import "./component/TodoForm";
-import TodoList from "./component/TodoList";
+import "./component/TaskForm";
+import TaskList from "./component/TaskList";
 
 function App() {
   return (
     <div className="App">
-      <TodoList />
+      <TaskList />
     </div>
   );
 }

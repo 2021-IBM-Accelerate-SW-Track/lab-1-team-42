@@ -1,39 +1,39 @@
 import React, { useState } from "react";
-import TodoForm from "./TodoForm";
+import TaskForm from "./TaskForm";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import EditIcon from "@material-ui/icons/Edit";
 
-const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
+const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
 
   const submitUpdate = (value) => {
-    updateTodo(edit.id, value);
+    updateTask(edit.id, value);
     setEdit({
       id: null,
       value: "",
     });
   };
 
-  //if editing --> pass edit to TodoForm to show edit box
+  //if editing --> pass edit to TaskForm to show edit box
   if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    return <TaskForm edit={edit} onSubmit={submitUpdate} />;
   }
 
-  return todos.map((todo, index) => (
+  return tasks.map((task, index) => (
     <div
-      //mark line through todo if complete
-      className={todo.isComplete ? "todo-row complete" : "todo-row"}
+      //mark line through Task if complete
+      className={task.isComplete ? "task-row complete" : "task-row"}
       key={index}
     >
       <div
         //toggle between every click
-        key={todo.id}
-        onClick={() => completeTodo(todo.id)}
+        key={task.id}
+        onClick={() => completeTask(task.id)}
       >
-        {todo.text}
+        {task.text}
       </div>
 
       <div
@@ -41,12 +41,12 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
         className="icons"
       >
         <HighlightOffIcon
-          onClick={() => removeTodo(todo.id)}
+          onClick={() => removeTask(task.id)}
           className="delete-icon"
         />
         <EditIcon
           //if editing -> set edit obj to id & text
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          onClick={() => setEdit({ id: task.id, value: task.text })}
           className="edit-icon"
         />
       </div>
@@ -54,4 +54,4 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   ));
 };
 
-export default Todo;
+export default Task;
