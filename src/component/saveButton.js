@@ -8,7 +8,8 @@ export default function Save(){
         variant="contained" 
         color="primary"
         size="large" 
-        startIcon={<SaveIcon />}>
+        startIcon={<SaveIcon />}
+        data-testid="new-item-button">
         Save 
         </Button>
     );

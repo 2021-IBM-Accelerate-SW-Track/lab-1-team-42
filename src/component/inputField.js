@@ -15,6 +15,7 @@ export function Field(){
             label=""
             variant="filled"
             onChange={(e) => setTarget(e.target.value)}
+            data-testid="new-item-input"
         />
     )
 }
