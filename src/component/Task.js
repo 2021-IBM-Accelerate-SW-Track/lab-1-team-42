@@ -36,6 +36,8 @@ const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
         {task.text}
       </div>
 
+      <div>{task.dateTime}</div>
+
       <div
         //materialUI icons
         className="icons"

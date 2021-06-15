@@ -19,12 +19,19 @@ const TaskForm = (props) => {
 
   //when add/edit button is clicked
   const handleSubmit = (e) => {
+    
+    let current = new Date();
+    let currentDate = (current.getMonth() + 1) + '-' + current.getDate() + '-' + current.getFullYear();
+    let currentTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+    let dateAndTime = currentTime + ' ' + currentDate;
+
     e.preventDefault();
 
     //pass this into onSubmit prop in task
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,
+      dateTime: dateAndTime,
     });
     setInput("");
   };
