@@ -1,33 +1,12 @@
 import Header from "./component/header"
-import React from 'react';
-import { Field, getTarget } from './component/inputField';
-import Save from './component/saveButton';
+import React from 'react'
+import { UserInput } from "./component/inputForm";
 import './App.css';
 
 //test commment
 function App() {
-  let list = [];
-
-function displayItem(){
-    // HTML list is identified by ID from the document
-    let displayList = document.getElementById('toDo');
-    // Creates a new HTML list item, access the latest addition
-    // of the JS array, matches the HTML text to the newest
-    // addition, and appends the HTML list element to the HTML
-    let item = document.createElement('li');
-    item.appendChild(document.createTextNode(list[list.length-1]));
-    displayList.append(item);
-  }
-
-  const handleItem = (e) =>{
-    let localTarget = getTarget();
-    e.preventDefault()
-    
-    if(localTarget && !list.includes(localTarget)){
-      list.push(localTarget);
-      displayItem();
-    }
-  }
+  // Hook to store the state of the textField, and
+  // a function to handle it.
   
   return (
     <div className="App">
@@ -36,10 +15,7 @@ function displayItem(){
     {/* Body contains text field and button within the same form,
     which then allows for submission upon click.*/}
     <body>
-      <form noValidate autoComplete="off" onSubmit={handleItem}>
-        <Field/>
-        <Save/>
-      </form>
+      <UserInput/>
       <br></br>
       <ol id="toDo">
       </ol>
