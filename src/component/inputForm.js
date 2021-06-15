@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Field from './inputField';
+import TextField from '@material-ui/core/TextField';
 import Save from './saveButton';
 
 let list = [];
@@ -23,15 +23,18 @@ export function UserInput(){
     const handleItem = (e) =>{
         e.preventDefault()
         if(item && !list.includes(item)){
-            list.push(item);
-            displayItem();
+        list.push(item);
+        displayItem();
         }
     }
     
     return(
         <form noValidate autoComplete="off" onSubmit={handleItem}>
-            <Field
-            onChange={(e) => setItem(e.target.value)} 
+            <TextField
+                onChange={(e) => setItem(e.target.value)} 
+                id="userInput" 
+                label=""
+                variant="filled"
             />
             <Save/>
         </form>
