@@ -20,64 +20,44 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 360,
       backgroundColor: theme.palette.background.paper,
       margin: 'auto',
-      //display: 'flex',
     },
   }));
 
   let list = [];
   let indicies = [];
-  export function generateItem(element, value){
-      let localTarget = getTarget();
-      if(localTarget && !list.includes(localTarget)){
-          list.push(localTarget);
-          indicies.push(indicies.length);
-          React.cloneElement(element, {key: value,});
-      }
-  }
-  
-  export function CheckboxList() {
-    const classes = useStyles();
-    const [checked, setChecked] = React.useState([0]);
-  
-    const handleToggle = (value) => () => {
-      const currentIndex = checked.indexOf(value);
-      const newChecked = [...checked];
-  
-      if (currentIndex === -1) {
-        newChecked.push(value);
-      } else {
-        newChecked.splice(currentIndex, 1);
-      }
-  
-      setChecked(newChecked);
-    };
-  
-    return (
-      <List className={classes.root}>
-        {indicies.map((value) => {
-        const labelId = `checkbox-list-label-${value}`;
-
-        generateItem (
-          <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
+  export function GenerateList(){
+    let localTarget = getTarget();
+    if(localTarget && !list.includes(localTarget)){
+      list.push(localTarget);
+      indicies.push(indicies.length);
+      console.log("generating");
+      return indicies.map((value) => {
+        return(
+          <ListItem key={value} role={undefined} dense button>
             <ListItemIcon>
-              <Checkbox
-                edge="start"
-                checked={checked.indexOf(value) !== -1}
-                tabIndex={-1}
-                disableRipple
-                inputProps={{ 'aria-labelledby': labelId }}
+              <Checkbox 
+              edge="start" 
+              tabIndex={-1}
+              disableRipple
               />
             </ListItemIcon>
-            <ListItemText id={labelId} primary={list[value]} />
+            <ListItemText primary={list[value]}/>
             <ListItemSecondaryAction>
               <IconButton edge="end" aria-label="delete">
                 <DeleteIcon />
               </IconButton>
             </ListItemSecondaryAction>
-          </ListItem>,
-          value
-        );
-      })}
+          </ListItem>
+        )
+      })
+    }
+  }
+  
+  export function CheckboxList() {
+    const classes = useStyles();
+    return(
+      <List className={classes.root}>
+        {GenerateList()}
       </List>
-    );
+    )
   }
