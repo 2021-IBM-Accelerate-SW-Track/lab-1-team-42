@@ -12,7 +12,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Field, getTarget } from './inputField';
+import { getTarget } from './inputField';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,15 +26,16 @@ const useStyles = makeStyles((theme) => ({
 
   let list = [];
   let indicies = [];
-  function generateItem(){
+  export function generateItem(element, value){
       let localTarget = getTarget();
       if(localTarget && !list.includes(localTarget)){
-          list.append(localTarget);
-          indicies.append(indicies.length);
+          list.push(localTarget);
+          indicies.push(indicies.length);
+          React.cloneElement(element, {key: value,});
       }
   }
   
-  export default function CheckboxList() {
+  export function CheckboxList() {
     const classes = useStyles();
     const [checked, setChecked] = React.useState([0]);
   
@@ -54,28 +55,29 @@ const useStyles = makeStyles((theme) => ({
     return (
       <List className={classes.root}>
         {indicies.map((value) => {
-          const labelId = `checkbox-list-label-${value}`;
-  
-          return (
-            <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
-              <ListItemIcon>
-                <Checkbox
-                  edge="start"
-                  checked={checked.indexOf(value) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{ 'aria-labelledby': labelId }}
-                />
-              </ListItemIcon>
-              <ListItemText id={labelId} primary={list[value]} />
-              <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="delete">
-                  <DeleteIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-          );
-        })}
+        const labelId = `checkbox-list-label-${value}`;
+
+        generateItem (
+          <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
+            <ListItemIcon>
+              <Checkbox
+                edge="start"
+                checked={checked.indexOf(value) !== -1}
+                tabIndex={-1}
+                disableRipple
+                inputProps={{ 'aria-labelledby': labelId }}
+              />
+            </ListItemIcon>
+            <ListItemText id={labelId} primary={list[value]} />
+            <ListItemSecondaryAction>
+              <IconButton edge="end" aria-label="delete">
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>,
+          value
+        );
+      })}
       </List>
     );
   }
