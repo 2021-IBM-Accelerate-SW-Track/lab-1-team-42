@@ -3,6 +3,7 @@ import React from 'react';
 import { Field, getTarget } from './component/inputField';
 import Save from './component/saveButton';
 import './App.css';
+import CheckboxList from "./component/list";
 
 //test commment
 function App() {
@@ -41,6 +42,7 @@ function displayItem(){
         <Save/>
       </form>
       <br></br>
+      <CheckboxList/>
       <ol id="toDo">
       </ol>
     </body>
