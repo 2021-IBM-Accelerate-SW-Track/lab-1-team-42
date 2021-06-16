@@ -4,6 +4,7 @@ import { Field } from './component/inputField';
 import Save from './component/saveButton';
 import './App.css';
 import  Grid  from '@material-ui/core/Grid';
+import { CheckboxList } from './component/list'
 
 //test commment
 function App() {
@@ -21,14 +22,11 @@ function App() {
       <body>
         <form noValidate autoComplete="off" onSubmit={handleItem}>
           <Grid container margin="auto" justify="center" row>
-              <Field/>
-              <Save/>
+            <Field/>
+            <Save/>
+            <CheckboxList />
           </Grid>
         </form>
-        <br></br>
-        <div id="myList">
-
-        </div>
       </body>
     </div>
   );

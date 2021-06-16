@@ -1,6 +1,8 @@
 import React from 'react';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
+import { getTarget } from './inputField';
+import Item from './item';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,11 +13,18 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
+  let textList = [];
+  function addToList(){
+    let localTarget = getTarget();
+    if(localTarget && !textList.includes(localTarget)){
+      textList.push(localTarget);
+      return <Item />
+    }
+  }
+
   export function CheckboxList() {
     const classes = useStyles();
     return(
-      <List className={classes.root}>
-        
-      </List>
+      <List className={classes.root} onSubmit={addToList()}/>
     )
   }
