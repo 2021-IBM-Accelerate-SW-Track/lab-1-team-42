@@ -1,18 +1,15 @@
 import Header from "./component/header"
 import React from 'react';
-import { Field, getTarget } from './component/inputField';
+import { Field } from './component/inputField';
 import Save from './component/saveButton';
 import './App.css';
 import  Grid  from '@material-ui/core/Grid';
-import { GenerateList } from './component/list'
-import List from '@material-ui/core/List'
 
 //test commment
 function App() {
   const handleItem = (e) =>{
     console.log("handling");
     e.preventDefault();
-    GenerateList();
   }
   
   return (
