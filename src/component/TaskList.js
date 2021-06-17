@@ -11,6 +11,12 @@ const TaskList = () => {
     if (!task.text) {
       return;
     }
+    //checks if it is a duplicate
+    for(var i = 0; i < tasks.length; i++){
+      if(tasks[i].text === task.text){
+          return;
+      }
+    }
     //get every Task out of Tasks[]
     const newTasks = [task, ...tasks];
 
