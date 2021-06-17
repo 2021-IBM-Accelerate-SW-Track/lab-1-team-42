@@ -28,6 +28,14 @@ h1 {
   font-size: 24px;
 }
 
+.Footer {
+  position: absolute;
+  width: 36%;
+  bottom: 0;
+  text-align: center;
+  color: #e3cba1;
+}
+
 .complete {
   text-decoration: line-through;
   opacity: 0.4;
