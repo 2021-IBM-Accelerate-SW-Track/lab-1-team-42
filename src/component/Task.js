@@ -24,7 +24,7 @@ const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
 
   return tasks.map((task, index) => (
     <div
-      //mark line through Task if complete
+      //mark line through task if complete
       className={task.isComplete ? "task-row complete" : "task-row"}
       key={index}
     >
@@ -36,10 +36,16 @@ const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
         {task.text}
       </div>
 
-      <div>{task.dateTime}</div>
+      <div
+        //toggle between every click
+        key={task.id}
+        onClick={() => completeTask(task.id)}
+      >
+        {task.dateTime}
+      </div>
 
       <div
-        //materialUI icons
+        //materialUI icons in this div container
         className="icons"
       >
         <HighlightOffIcon
@@ -47,7 +53,7 @@ const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
           className="delete-icon"
         />
         <EditIcon
-          //if editing -> set edit obj to id & text
+          //if editing -> set edit obj to editing task's id & text
           onClick={() => setEdit({ id: task.id, value: task.text })}
           className="edit-icon"
         />
