@@ -36,9 +36,7 @@ const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
         {task.text}
       </div>
 
-      <div key={task.id} onClick={() => completeTask(task.id)}>
-        {task.dateTime}
-      </div>
+      <div>{task.dateTime}</div>
 
       <div
         //materialUI icons
