@@ -22,7 +22,21 @@ const TaskForm = (props) => {
     
     let current = new Date();
     let currentDate = (current.getMonth() + 1) + '-' + current.getDate() + '-' + current.getFullYear();
-    let currentTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+
+    let hour = 0;
+    let amOrPm = '';
+
+    // change to 12 hour time and indicate AM or PM
+    if (current.getHours() > 12) {
+      hour = current.getHours() - 12;
+      amOrPm = 'PM';
+    } else {
+      hour = current.getHours();
+      amOrPm = 'AM';
+    }
+
+    let currentTime = hour + ":" + current.getMinutes() + " " + amOrPm;
+    
     let dateAndTime = currentTime + ' ' + currentDate;
 
     e.preventDefault();
