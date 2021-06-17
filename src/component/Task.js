@@ -24,17 +24,14 @@ const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
 
   return tasks.map((task, index) => (
     <div
+      //toggle between every click
+      key={task.id}
+      onClick={() => completeTask(task.id)}
       //mark line through Task if complete
       className={task.isComplete ? "task-row complete" : "task-row"}
       key={index}
     >
-      <div
-        //toggle between every click
-        key={task.id}
-        onClick={() => completeTask(task.id)}
-      >
-        {task.text}
-      </div>
+      <div>{task.text}</div>
 
       <div>{task.dateTime}</div>
 
