@@ -72,7 +72,7 @@ const TaskForm = (props) => {
           <>
             <input
               type="text"
-              placeholder="Add a task"
+              placeholder="Add task..."
               value={input}
               name="text"
               className="task-input"
