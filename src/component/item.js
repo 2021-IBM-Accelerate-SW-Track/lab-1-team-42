@@ -11,8 +11,9 @@ import { getTarget } from './inputField';
 
 export default function Item(){
     let localTarget = getTarget;
+    let unique = Math.random() * Math.PI;
     return(
-        <ListItem role={undefined} dense button>
+        <ListItem key={unique} role={undefined} dense button>
             <ListItemIcon>
                 <Checkbox 
                 edge="start" 
