@@ -7,16 +7,16 @@ const TaskList = () => {
 
   //Task is item passed in from TaskForm
   const addTask = (task) => {
-    //if nothing typed in --> return
-    if (!task.text) {
+    //if nothing typed in or already in tasks --> return
+    if (!task.text || tasks.includes(task)) {
       return;
     }
     //checks if it is a duplicate
-    for(var i = 0; i < tasks.length; i++){
-      if(tasks[i].text === task.text){
-          return;
-      }
-    }
+    // for(var i = 0; i < tasks.length; i++){
+    //   if(tasks[i].text === task.text){
+    //       return;
+    //   }
+    // }
     //get every Task out of Tasks[]
     const newTasks = [task, ...tasks];
 
