@@ -8,7 +8,7 @@ const TaskList = () => {
   //Task is item passed in from TaskForm
   const addTask = (task) => {
     //if nothing typed in or already in tasks --> return
-    if (!task.text || tasks.includes(task)) {
+    if (!task.text || tasks.filter(element => element.text === task.text).length > 0) {
       return;
     }
     //checks if it is a duplicate
