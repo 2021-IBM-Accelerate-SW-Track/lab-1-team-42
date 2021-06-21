@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import Task from "./Task";
 import TaskForm from "./TaskForm";
 
+// TaskList
+//
+// // // Performs the actual operations on and displays the main list. All required methods for
+// // // editing, deletion, completion, and addition are included here, making use of item ids (for the most part) to
+// // // identify what task is being accessed.
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
 
@@ -11,12 +16,7 @@ const TaskList = () => {
     if (!task.text || tasks.filter(element => element.text === task.text).length > 0) {
       return;
     }
-    //checks if it is a duplicate
-    // for(var i = 0; i < tasks.length; i++){
-    //   if(tasks[i].text === task.text){
-    //       return;
-    //   }
-    // }
+
     //get every Task out of Tasks[]
     const newTasks = [task, ...tasks];
 

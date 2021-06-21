@@ -1,4 +1,3 @@
-import Header from "./component/header";
 import React from "react";
 import "./App.css";
 import "./component/TaskForm";

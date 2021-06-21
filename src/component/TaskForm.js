@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
+// TaskForm
+//
+// // // Used as part of TaskList, and is the main UI. Props and helper functions are utilized throughout to
+// // // help facilitate the correct submission of a task to the TaskList, as well as the editing display for a single task.
+
 //get props onSubmit from TaskList
 const TaskForm = (props) => {
   //if editing --> show previous text to edit on
@@ -78,8 +83,9 @@ const TaskForm = (props) => {
               className="task-input"
               onChange={handleChange}
               ref={inputRef}
+              data-testid="new-item-input"
             />
-            <button onClick={handleSubmit} className="task-button">
+            <button onClick={handleSubmit} className="task-button" data-testid="new-item-button">
               Add
             </button>
           </>

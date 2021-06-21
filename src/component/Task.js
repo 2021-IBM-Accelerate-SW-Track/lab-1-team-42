@@ -3,12 +3,18 @@ import TaskForm from "./TaskForm";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import EditIcon from "@material-ui/icons/Edit";
 
+// Task
+//
+// // // Task provides the skeleton for all tasks inputted into TaskList from TaskForm.
+// // // By using passed in props, the coupling between Task and TaskForm becomes efficient and reasonable. 
 const Task = ({ tasks, completeTask, removeTask, updateTask }) => {
+  // This state element functions almost like a constructor for every Task.
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
 
+  // submitUpdate relies upon the state and the task ID to complete its purpose.
   const submitUpdate = (value) => {
     updateTask(edit.id, value);
     setEdit({
